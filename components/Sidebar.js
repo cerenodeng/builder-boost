@@ -1,25 +1,20 @@
 'use client';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Text } from "@/components/Icon";
 
 export default function Sidebar() {
-  const pathname = usePathname();
-  const navs = [
-    { id: 1, name: 'Home', href: '/' },
-    { id: 2, name: 'Builder', href: '/builder' },
-    { id: 2, name: 'About', href: '/about' },
+  const components = [
+    { id: 1, name: 'Text', entity: '<></>', icon: <Text /> },
   ];
+
   return (
-    <aside>
-      <nav class='flex flex-col gap-y-2 h-screen w-64 p-4 bg-neutral-900'>
-        {navs.map((nav) => (
-          <Link
-            className={`${pathname == nav.href ? 'text-neutral-50 bg-neutral-700' : 'text-neutral-50 hover:bg-neutral-500'} font-semibold px-8 py-5 rounded`}
-            href={nav.href}
-            key={nav.id}
-          >
-            {nav.name}
-          </Link>
+    <aside className="flex-none flex flex-col gap-y-2 h-screen w-64 p-4 bg-neutral-900 shadow-2xl shadow-neutral-900/50">
+      <h1 className="px-8 py-5 text-center text-neutral-300">Builder Boost</h1>
+      <nav className='flex flex-col gap-4'>
+        {components.map((component) => (
+          <div className="flex flex-col gap-y-2 w-24 h-24 p-5 text-neutral-50 font-semibold bg-neutral-700 rounded" key={component.id}>
+            <div class="text-center">{component.name}</div>
+            {component.icon}
+          </div>
         ))}
       </nav>
     </aside>
