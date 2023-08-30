@@ -7,7 +7,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="flex-none flex flex-col gap-y-2 h-screen w-64 p-4 bg-neutral-900 shadow-2xl shadow-neutral-900/50">
+    <aside className="flex flex-col fixed gap-y-2 top-0 left-0 h-screen w-64 p-4 overflow-y-auto bg-neutral-900 shadow-2xl shadow-neutral-900/50">
       <h1 className="px-8 py-5 text-center text-neutral-300">Builder Boost</h1>
       <nav className='flex flex-col gap-4'>
         {components.map((component) => (
