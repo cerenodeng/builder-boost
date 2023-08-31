@@ -1,9 +1,9 @@
 'use client';
-import { Text } from "@/components/Icon";
+import { TextIcon } from "@/components/Icon";
 
 export default function Sidebar() {
   const components = [
-    { id: 1, name: 'Text', entity: '<></>', icon: <Text /> },
+    { id: 1, name: 'Text', entity: '<></>', icon: <TextIcon /> },
   ];
 
   return (
