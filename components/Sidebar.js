@@ -18,9 +18,14 @@ export default function Sidebar() {
       <h1 className="px-8 py-5 text-center text-neutral-300">Builder Boost</h1>
       <nav className='flex flex-col gap-4'>
         {components.map((component) => (
-          <div className="flex flex-col gap-y-2 w-24 h-24 p-5 text-neutral-50 font-semibold bg-neutral-700 rounded" key={component.id} draggable onDragStart={dragStart}>
-            <div className="text-center">{component.name}</div>
-            {component.icon}
+          <div
+            className="flex flex-col gap-y-2 w-24 h-24 p-5 text-neutral-50 font-semibold bg-neutral-700 items-center justify-center rounded"
+            key={component.id}
+            draggable
+            onDragStart={dragStart}
+          >
+            <div>{component.name}</div>
+            <div className="w-10 h-10">{component.icon}</div>
           </div>
         ))}
       </nav>
