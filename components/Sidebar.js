@@ -5,11 +5,19 @@ import { TextIcon } from '@/components/Icon';
 
 export default function Sidebar() {
   const components = [
-    { id: 1, name: 'Text', entity: '<></>', icon: <TextIcon /> },
+    { id: 1, name: 'Text', entity: <Text />, icon: <TextIcon /> },
   ];
 
+  function getEntity(componentId) {
+    for (const component of components) {
+      if (component.id == componentId) {
+        return component.entity;
+      }
+    }
+  }
+
   function dragStart(event) {
-    event.dataTransfer.setData('text', renderToString(<Text />));
+    event.dataTransfer.setData('text', renderToString(getEntity(event.currentTarget.dataset.componentId)));
     event.dataTransfer.effectAllowed = 'all';
   }
 
@@ -20,6 +28,7 @@ export default function Sidebar() {
         {components.map((component) => (
           <div
             className="flex flex-col gap-y-2 w-24 h-24 p-5 text-neutral-50 font-semibold bg-neutral-700 items-center justify-center rounded"
+            data-component-id={component.id}
             key={component.id}
             draggable
             onDragStart={dragStart}
